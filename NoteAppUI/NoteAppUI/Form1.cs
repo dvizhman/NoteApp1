@@ -14,6 +14,7 @@ namespace NoteAppUI
     {
         public Form1()
         {
+            // Test commit
             InitializeComponent();
         }
     }
