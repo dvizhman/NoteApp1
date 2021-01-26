@@ -52,6 +52,11 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Icons\Icons.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Icons.resx</DependentUpon>
+    </Compile>
     <Compile Include="NoteEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +73,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\Icons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="NoteEditForm.resx">
       <DependentUpon>NoteEditForm.cs</DependentUpon>
@@ -102,6 +111,11 @@
       <Project>{3e3f751d-31ed-4d55-bc83-a2b239db8dfd}</Project>
       <Name>NoteApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\Add.png" />
+    <Content Include="Icons\Delete.png" />
+    <Content Include="Icons\Edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

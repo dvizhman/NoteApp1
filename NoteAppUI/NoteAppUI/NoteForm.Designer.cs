@@ -86,7 +86,7 @@ namespace NoteAppUI
             // toolStripMenuItemExit
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemExit.Text = "Выход";
             // 
             // toolStripMenuItemEditMenu
@@ -99,6 +99,7 @@ namespace NoteAppUI
             // 
             // toolStripMenuItemCreate
             // 
+            this.toolStripMenuItemCreate.Image = global::NoteAppUI.Icons.Icons.Add;
             this.toolStripMenuItemCreate.Name = "toolStripMenuItemCreate";
             this.toolStripMenuItemCreate.Size = new System.Drawing.Size(206, 22);
             this.toolStripMenuItemCreate.Text = "Создать заметку";
@@ -106,6 +107,7 @@ namespace NoteAppUI
             // 
             // toolStripMenuItemEdit
             // 
+            this.toolStripMenuItemEdit.Image = global::NoteAppUI.Icons.Icons.Edit;
             this.toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
             this.toolStripMenuItemEdit.Size = new System.Drawing.Size(206, 22);
             this.toolStripMenuItemEdit.Text = "Редактировать заметку";
@@ -113,6 +115,7 @@ namespace NoteAppUI
             // 
             // toolStripMenuItemDelete
             // 
+            this.toolStripMenuItemDelete.Image = global::NoteAppUI.Icons.Icons.Delete;
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
             this.toolStripMenuItemDelete.Size = new System.Drawing.Size(206, 22);
             this.toolStripMenuItemDelete.Text = "Удалить заметку";
@@ -129,7 +132,7 @@ namespace NoteAppUI
             // toolStripMenuItemAbout
             // 
             this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(149, 22);
+            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemAbout.Text = "О программе";
             this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
             // 
@@ -241,29 +244,32 @@ namespace NoteAppUI
             // 
             // buttonRemove
             // 
+            this.buttonRemove.BackgroundImage = global::NoteAppUI.Icons.Icons.Delete;
+            this.buttonRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRemove.Location = new System.Drawing.Point(63, 3);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(24, 24);
             this.buttonRemove.TabIndex = 2;
-            this.buttonRemove.Text = "button1";
             this.buttonRemove.UseVisualStyleBackColor = true;
             // 
             // buttonEdit
             // 
+            this.buttonEdit.BackgroundImage = global::NoteAppUI.Icons.Icons.Edit;
+            this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonEdit.Location = new System.Drawing.Point(33, 3);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(24, 24);
             this.buttonEdit.TabIndex = 1;
-            this.buttonEdit.Text = "button1";
             this.buttonEdit.UseVisualStyleBackColor = true;
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackgroundImage = global::NoteAppUI.Icons.Icons.Add;
+            this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAdd.Location = new System.Drawing.Point(3, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(24, 24);
             this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "button1";
             this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // textBoxNoteText
@@ -279,7 +285,7 @@ namespace NoteAppUI
             this.textBoxNoteText.Name = "textBoxNoteText";
             this.textBoxNoteText.ReadOnly = true;
             this.textBoxNoteText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxNoteText.Size = new System.Drawing.Size(392, 218);
+            this.textBoxNoteText.Size = new System.Drawing.Size(398, 218);
             this.textBoxNoteText.TabIndex = 6;
             // 
             // dateTimePickerModifiedAt
@@ -324,7 +330,7 @@ namespace NoteAppUI
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.labelNoteCategory.Location = new System.Drawing.Point(7, 26);
             this.labelNoteCategory.Name = "labelNoteCategory";
-            this.labelNoteCategory.Size = new System.Drawing.Size(403, 25);
+            this.labelNoteCategory.Size = new System.Drawing.Size(409, 25);
             this.labelNoteCategory.TabIndex = 1;
             this.labelNoteCategory.Text = "Категория: ";
             this.labelNoteCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,7 +345,7 @@ namespace NoteAppUI
                 System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.labelName.Location = new System.Drawing.Point(7, 3);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(403, 23);
+            this.labelName.Size = new System.Drawing.Size(409, 23);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название заметки";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
