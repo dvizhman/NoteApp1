@@ -116,6 +116,7 @@ namespace NoteAppUI
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
             this.toolStripMenuItemDelete.Size = new System.Drawing.Size(206, 22);
             this.toolStripMenuItemDelete.Text = "Удалить заметку";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
             // toolStripmenuItemHelp
             // 

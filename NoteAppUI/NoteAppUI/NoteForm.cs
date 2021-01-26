@@ -70,6 +70,9 @@ namespace NoteAppUI
                 new BindingSource(_project.SortByDate(category), null);
             // Отобразить название заметки в списке заметок
             listBoxNotes.DisplayMember = nameof(Note.Name);
+            // Если список заметок пуст, очистить правую часть
+            if (listBoxNotes.Items.Count == 0)
+                CleanUp();
         }
         
         /// <summary>
@@ -89,6 +92,7 @@ namespace NoteAppUI
         private void CleanUp()
         {
             labelName.Text = "";
+            labelNoteCategory.Text = CategoryLabel;
             textBoxNoteText.Text = "";
         }
 
@@ -153,6 +157,9 @@ namespace NoteAppUI
             Enabled = true;
         }
 
+        /// <summary>
+        /// Отображение формы редактирования заметки для её изменения.
+        /// </summary>
         private void EditNote()
         {
             // Поиск индекса выбранной заметки в списке заметок
@@ -178,6 +185,25 @@ namespace NoteAppUI
             }
             // Включение формы
             Enabled = true;
+        }
+
+        /// <summary>
+        /// Удаление выбранной заметки
+        /// </summary>
+        private void DeleteNote()
+        {
+            // Поиск индекса выбранной заметки в списке заметок
+            var selectedNote = (Note) listBoxNotes.SelectedItem;
+            int index = _project.Notes.IndexOf(selectedNote);
+            // Удаление заметок
+            _project.Notes.RemoveAt(index);
+            // Обновить заметки
+            BindNotes();
+            // Сохранить проект на диск
+            ProjectManager.Current.Save(_project);
+            // Если список заметок не пуст, выбрать первую
+            if (listBoxNotes.Items.Count > 0)
+                listBoxNotes.SelectedIndex = 0;
         }
         
         /// <summary>
@@ -223,6 +249,16 @@ namespace NoteAppUI
         private void toolStripMenuItemEdit_Click(object sender, EventArgs e)
         {
             EditNote();
+        }
+        
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Удалить заметку" в главном меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
+        {
+            DeleteNote();
         }
 
         /// <summary>
