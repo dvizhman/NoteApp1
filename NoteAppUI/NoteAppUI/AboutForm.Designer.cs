@@ -129,7 +129,7 @@ namespace NoteAppUI
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(250, 250);
             this.Name = "AboutForm";
-            this.Text = "AboutForm";
+            this.Text = "О программе";
             this.ResumeLayout(false);
         }
 

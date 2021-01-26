@@ -36,6 +36,9 @@ namespace NoteAppUI
                 {Category.Other, "Прочее"}
             };
         
+        /// <summary>
+        /// Объект проекта
+        /// </summary>
         private Project _project;
         
         /// <summary>
@@ -43,17 +46,29 @@ namespace NoteAppUI
         /// </summary>
         private void LoadCategories()
         {
+            // Привязка к словарю категорий
             comboBoxCategory.DataSource = 
                 new BindingSource(Categories, null);
+            // Отображение значения (строка)
             comboBoxCategory.DisplayMember = "Value";
+            // В качестве выбранного значения выступит ключ словаря (категория)
             comboBoxCategory.ValueMember = "Key";
         }
 
+        /// <summary>
+        /// Обновление списка заметок
+        /// </summary>
+        /// <param name="category">Категория. Если не указана, то All.</param>
         private void BindNotes(Category category = Category.All)
         {
+            // Если выбраны все категории, то получить и отобразить
+            // отсортированный по дате изменения список заметок,
+            // иначе отобразить отсортированный по дате изменения
+            // список заметок определённой категории.
             listBoxNotes.DataSource = category == Category.All ? 
                 new BindingSource(_project.SortByDate(), null) : 
                 new BindingSource(_project.SortByDate(category), null);
+            // Отобразить название заметки в списке заметок
             listBoxNotes.DisplayMember = nameof(Note.Name);
         }
         
@@ -62,7 +77,9 @@ namespace NoteAppUI
         /// </summary>
         private void LoadNotes()
         {
+            // Загрузить проект из файла
             _project = ProjectManager.Current.Load();
+            // Отобразить заметки
             BindNotes();
         }
         
@@ -114,34 +131,52 @@ namespace NoteAppUI
         /// </summary>
         private void AddNote()
         {
+            // Создание формы редактирования
             var editForm = new NoteEditForm();
+            // Отключение данной формы
             Enabled = false;
+            // Отображение формы редактирования и ожидание результата
             var result = editForm.ShowDialog();
+            // Если ОК, то...
             if (result == DialogResult.OK)
             {
+                // ...добавить свежесозданную заметку в список в проекте
                 _project.Notes.Add(editForm.Note);
+                // Обновить заметки
                 BindNotes();
+                // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
+                // Выбрать свежесозданную заметку
                 SelectNote(editForm.Note);
             }
+            // Включение формы
             Enabled = true;
         }
 
         private void EditNote()
         {
+            // Поиск индекса выбранной заметки в списке заметок
             var selectedNote = (Note) listBoxNotes.SelectedItem;
             int index = _project.Notes.IndexOf(selectedNote);
+            // Создание формы редактирования
             var editForm = new NoteEditForm(selectedNote);
+            // Отключение данной формы
             Enabled = false;
+            // Отображение формы редактирования и ожидание результата
             var result = editForm.ShowDialog();
+            // Если ОК, то...
             if (result == DialogResult.OK)
             {
+                // ...добавить свежесозданную заметку в список в проекте
                 _project.Notes[index] = editForm.Note;
+                // Обновить заметки
                 BindNotes();
+                // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
+                // Выбрать свежесозданную заметку
                 SelectNote(editForm.Note);
             }
-
+            // Включение формы
             Enabled = true;
         }
         
@@ -179,6 +214,16 @@ namespace NoteAppUI
         {
             AddNote();
         }
+        
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Редактировать заметку" в главном меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemEdit_Click(object sender, EventArgs e)
+        {
+            EditNote();
+        }
 
         /// <summary>
         /// Обработчик события смены выбранной заметки в списке заметок
@@ -200,11 +245,6 @@ namespace NoteAppUI
         {
             // Заново сформировать список из заметок только выбранной категории
             BindNotes(((KeyValuePair<Category,string>)comboBoxCategory.SelectedItem).Key);
-        }
-
-        private void toolStripMenuItemEdit_Click(object sender, EventArgs e)
-        {
-            EditNote();
         }
     }
 }

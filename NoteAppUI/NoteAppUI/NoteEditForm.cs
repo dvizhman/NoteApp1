@@ -42,8 +42,11 @@ namespace NoteAppUI
             // Категория заметки
             comboBoxCategory.SelectedItem = _categories.
                 FirstOrDefault(i => i.Key == Note.Category);
+            // Дата создания заметки
             dateTimePickerCreatedAt.Value = Note.CreatedAt;
+            // Дата редактирования заметки
             dateTimePickerModifiedAt.Value = Note.LastModifiedAt;
+            // Текст заметки
             textBox_Text.Text = Note.Text;
         }
         
@@ -63,11 +66,13 @@ namespace NoteAppUI
         public NoteEditForm()
         {
             InitializeComponent();
+            // Загрузка списка категорий
             LoadCategories();
             Note = new Note()
             {
                 Category = ((KeyValuePair<Category,string>)(comboBoxCategory.SelectedItem)).Key
             };
+            // Первичная настройка полей
             SetUpFields();
         }
 
@@ -79,8 +84,11 @@ namespace NoteAppUI
         public NoteEditForm(Note note)
         {
             InitializeComponent();
+            // Загрузка категорий
             LoadCategories();
+            // Присвоение переданной заметки в форму для дальнейшего редактирования
             Note = note;
+            // Первичная настройка полей
             SetUpFields();
         }
 
@@ -94,22 +102,42 @@ namespace NoteAppUI
             Note.Name = textBox_Name.Text;
         }
 
+        /// <summary>
+        /// Событие смены категории заметки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             Note.Category = ((KeyValuePair<Category,string>)comboBoxCategory.SelectedItem).Key;
         }
         
+        /// <summary>
+        /// Событие изменения текста заметки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_Text_TextChanged(object sender, EventArgs e)
         {
             Note.Text = textBox_Text.Text;
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки "OK"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonOk_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки "Отмена"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
