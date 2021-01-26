@@ -5,6 +5,7 @@ namespace NoteApp.Models
     /// </summary>
     public enum Category
     {
+        All,
         Work,
         Home,
         Health,

@@ -99,7 +99,7 @@ namespace NoteApp
         /// Загружает проект из файла
         /// </summary>
         /// <returns>Проект</returns>
-        public Project LoadAsync()
+        public Project Load()
         {
             // Создание папки приложения
             CreateFolder(AppFolder);
@@ -135,8 +135,7 @@ namespace NoteApp
         {
             Save(new Project());
         }
-
-
+        
         /* Паттерн "Одиночка" позволяет гарантированно иметь
            единственный экземпляр объекта. Это достигается
            путём выставления модификатора private конструктору
