@@ -221,6 +221,16 @@ namespace NoteAppUI
         }
 
         /// <summary>
+        /// Обработчик события нажатия на кнопку "Выход" в главном меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        
+        /// <summary>
         /// Обработчик события нажатия на кнопку "О программе"
         /// </summary>
         /// <param name="sender">Кнопка "О программе"</param>

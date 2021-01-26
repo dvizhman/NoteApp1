@@ -88,6 +88,7 @@ namespace NoteAppUI
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
             this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemExit.Text = "Выход";
+            this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
             // toolStripMenuItemEditMenu
             // 
