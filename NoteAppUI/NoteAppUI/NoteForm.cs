@@ -17,11 +17,13 @@ namespace NoteAppUI
     /// </summary>
     public partial class NoteForm : Form
     {
+        private const string CategoryLabel = "Категория: ";
+        
         /// <summary>
         /// Словарь категорий для отображения в программе.
         /// Сопоставление перечислимого типа и текстового представления.
         /// </summary>
-        private static readonly Dictionary<Category, string> _categories = 
+        private static readonly Dictionary<Category, string> Categories = 
             new Dictionary<Category, string>()
             {
                 {Category.All, "Все"},
@@ -42,14 +44,16 @@ namespace NoteAppUI
         private void LoadCategories()
         {
             comboBoxCategory.DataSource = 
-                new BindingSource(_categories, null);
+                new BindingSource(Categories, null);
             comboBoxCategory.DisplayMember = "Value";
             comboBoxCategory.ValueMember = "Key";
         }
 
-        private void BindNotes()
+        private void BindNotes(Category category = Category.All)
         {
-            listBoxNotes.DataSource = new BindingSource(_project.SortByDate(), null);
+            listBoxNotes.DataSource = category == Category.All ? 
+                new BindingSource(_project.SortByDate(), null) : 
+                new BindingSource(_project.SortByDate(category), null);
             listBoxNotes.DisplayMember = nameof(Note.Name);
         }
         
@@ -85,12 +89,23 @@ namespace NoteAppUI
             Enabled = true;
         }
 
+        /// <summary>
+        /// Отображение выбранной заметки
+        /// </summary>
+        /// <param name="note">Выбранная заметка</param>
         private void SelectNote(Note note)
         {
+            // Смена индекса в списке заметок
             listBoxNotes.SelectedIndex = listBoxNotes.Items.IndexOf(note);
+            // Смена названия
             labelName.Text = note.Name;
+            // Смена отображаемой категории
+            labelNoteCategory.Text = CategoryLabel + Categories[note.Category];
+            // Смена даты создания заметки
             dateTimePickerCreatedAt.Value = note.CreatedAt;
+            // Смена даты изменения заметки
             dateTimePickerModifiedAt.Value = note.LastModifiedAt;
+            // Смена текста заметки
             textBoxNoteText.Text = note.Text;
         }
         
@@ -106,6 +121,24 @@ namespace NoteAppUI
             {
                 _project.Notes.Add(editForm.Note);
                 BindNotes();
+                ProjectManager.Current.Save(_project);
+                SelectNote(editForm.Note);
+            }
+            Enabled = true;
+        }
+
+        private void EditNote()
+        {
+            var selectedNote = (Note) listBoxNotes.SelectedItem;
+            int index = _project.Notes.IndexOf(selectedNote);
+            var editForm = new NoteEditForm(selectedNote);
+            Enabled = false;
+            var result = editForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                _project.Notes[index] = editForm.Note;
+                BindNotes();
+                ProjectManager.Current.Save(_project);
                 SelectNote(editForm.Note);
             }
 
@@ -137,14 +170,41 @@ namespace NoteAppUI
             ShowAboutForm();
         }
 
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Создать заметку" в главном меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripMenuItemCreate_Click(object sender, EventArgs e)
         {
             AddNote();
         }
 
+        /// <summary>
+        /// Обработчик события смены выбранной заметки в списке заметок
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Отобразить выбранную заметку
             SelectNote((Note)listBoxNotes.Items[listBoxNotes.SelectedIndex]);
+        }
+
+        /// <summary>
+        /// Обработчик события смены категории отображаемых заметок
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Заново сформировать список из заметок только выбранной категории
+            BindNotes(((KeyValuePair<Category,string>)comboBoxCategory.SelectedItem).Key);
+        }
+
+        private void toolStripMenuItemEdit_Click(object sender, EventArgs e)
+        {
+            EditNote();
         }
     }
 }

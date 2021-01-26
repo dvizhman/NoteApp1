@@ -27,11 +27,19 @@ namespace NoteAppUI
                 {Category.Other, "Прочее"}
             };
 
+        /// <summary>
+        /// Редактируемая заметка
+        /// </summary>
         public Note Note { get; }
 
+        /// <summary>
+        /// Первичная настройка полей формы
+        /// </summary>
         private void SetUpFields()
         {
+            // Название заметки
             textBox_Name.Text = Note.Name;
+            // Категория заметки
             comboBoxCategory.SelectedItem = _categories.
                 FirstOrDefault(i => i.Key == Note.Category);
             dateTimePickerCreatedAt.Value = Note.CreatedAt;
@@ -56,7 +64,11 @@ namespace NoteAppUI
         {
             InitializeComponent();
             LoadCategories();
-            Note = new Note();
+            Note = new Note()
+            {
+                Category = ((KeyValuePair<Category,string>)(comboBoxCategory.SelectedItem)).Key
+            };
+            SetUpFields();
         }
 
         /// <summary>
@@ -69,6 +81,7 @@ namespace NoteAppUI
             InitializeComponent();
             LoadCategories();
             Note = note;
+            SetUpFields();
         }
 
         /// <summary>
