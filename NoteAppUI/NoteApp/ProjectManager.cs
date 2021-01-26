@@ -44,7 +44,7 @@ namespace NoteApp
                 string data = System.Text.Encoding.UTF8.GetString(bytes);
                 return data;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception("Ошибка чтения файла " + path);
             }
@@ -73,7 +73,7 @@ namespace NoteApp
                 File.Delete(path);
                 File.Move(path + ".temp", path);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception("Ошибка записи в " + path);
             }
@@ -89,7 +89,7 @@ namespace NoteApp
             {
                 Directory.CreateDirectory(path);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception("Ошибка создания папки " + path);
             }
