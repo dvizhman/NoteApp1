@@ -72,7 +72,26 @@ namespace NoteAppUI
             listBoxNotes.DisplayMember = nameof(Note.Name);
             // Если список заметок пуст, очистить правую часть
             if (listBoxNotes.Items.Count == 0)
+            {
                 CleanUp();
+                SwitchEditState(false);
+            }
+            else
+            {
+                SwitchEditState(true);
+            }
+        }
+
+        /// <summary>
+        /// Переключение возможности редактирования и удаления заметок
+        /// </summary>
+        /// <param name="state">TRUE, если необходимо включить возможности</param>
+        private void SwitchEditState(bool state)
+        {
+            buttonEdit.Enabled = state;
+            buttonRemove.Enabled = state;
+            toolStripMenuItemEdit.Enabled = state;
+            toolStripMenuItemDelete.Enabled = state;
         }
         
         /// <summary>
