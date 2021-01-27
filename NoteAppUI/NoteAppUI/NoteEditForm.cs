@@ -6,6 +6,8 @@ using NoteApp.Models;
 
 namespace NoteAppUI
 {
+    // TODO: Изменение LastModifiedAt
+    
     /// <summary>
     /// Класс формы редактирования заметки.
     /// </summary>
