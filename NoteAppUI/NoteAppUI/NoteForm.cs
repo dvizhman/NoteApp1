@@ -146,8 +146,11 @@ namespace NoteAppUI
             {
                 // ...добавить свежесозданную заметку в список в проекте
                 _project.Notes.Add(editForm.Note);
+                // Смена категории
+                comboBoxCategory.SelectedItem = 
+                    Categories.FirstOrDefault(i => i.Key == editForm.Note.Category);
                 // Обновить заметки
-                BindNotes();
+                BindNotes(editForm.Note.Category);
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
