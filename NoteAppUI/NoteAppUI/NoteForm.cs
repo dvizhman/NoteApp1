@@ -39,7 +39,7 @@ namespace NoteAppUI
         /// <summary>
         /// Объект проекта
         /// </summary>
-        private Project _project;
+        private Project _project = new Project();
         
         /// <summary>
         /// Загрузка списка категорий заметок
