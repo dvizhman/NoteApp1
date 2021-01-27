@@ -295,5 +295,35 @@ namespace NoteAppUI
             // Заново сформировать список из заметок только выбранной категории
             BindNotes(((KeyValuePair<Category,string>)comboBoxCategory.SelectedItem).Key);
         }
+
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Создать заметку"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            AddNote();
+        }
+
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Редактировать заметку"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            EditNote();
+        }
+
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Удалить заметку"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            DeleteNote();
+        }
     }
 }
