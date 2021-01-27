@@ -30,7 +30,7 @@ namespace NoteAppUI
         /// <summary>
         /// Редактируемая заметка
         /// </summary>
-        public Note Note { get; }
+        public Note Note { get; } = new Note();
 
         /// <summary>
         /// Первичная настройка полей формы
@@ -65,12 +65,13 @@ namespace NoteAppUI
         /// </summary>
         public NoteEditForm()
         {
+            
             InitializeComponent();
             // Загрузка списка категорий
             LoadCategories();
             Note = new Note()
             {
-                Category = ((KeyValuePair<Category,string>)(comboBoxCategory.SelectedItem)).Key
+                Category = ((KeyValuePair<Category, string>)(comboBoxCategory.SelectedItem)).Key
             };
             // Первичная настройка полей
             SetUpFields();
@@ -83,10 +84,11 @@ namespace NoteAppUI
         /// <param name="note">Заметка для редактирования</param>
         public NoteEditForm(Note note)
         {
+            // Присвоение переданной заметки в форму для дальнейшего редактирования
+            
             InitializeComponent();
             // Загрузка категорий
             LoadCategories();
-            // Присвоение переданной заметки в форму для дальнейшего редактирования
             Note = note;
             // Первичная настройка полей
             SetUpFields();
