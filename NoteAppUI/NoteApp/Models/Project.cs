@@ -9,6 +9,11 @@ namespace NoteApp.Models
     public class Project
     {
         /// <summary>
+        /// Текущая заметка
+        /// </summary>
+        public Note CurrentNote { get; set; }
+    
+        /// <summary>
         /// Список заметок
         /// </summary>
         public List<Note> Notes { get; set; } = new List<Note>();

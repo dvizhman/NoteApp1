@@ -110,7 +110,7 @@ namespace NoteApp
             string data = ReadFile(NotesFile);
             // Десериализация данных
             Project project = JsonConvert.DeserializeObject<Project>(data);
-            return project;
+            return project ?? new Project();
         }
 
         /// <summary>
