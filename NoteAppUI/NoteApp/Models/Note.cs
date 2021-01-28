@@ -1,4 +1,6 @@
 using System;
+using System.Net.Configuration;
+using Newtonsoft.Json;
 
 namespace NoteApp.Models
 {
@@ -10,21 +12,31 @@ namespace NoteApp.Models
         /// <summary>
         /// Поле имени заметки
         /// </summary>
+        [JsonProperty("name")]
         private string _name = "Без названия";
 
         /// <summary>
         /// Поле категории заметки
         /// </summary>
+        [JsonProperty("category")]
         private Category _category;
 
         /// <summary>
         /// Поле текстового содержимого заметки
         /// </summary>
+        [JsonProperty("text")]
         private string _text = "";
 
         /// <summary>
+        /// Поле даты создания заметки
+        /// </summary>
+        [JsonProperty("createdAt")]
+        private DateTime _createdAt = DateTime.Now;
+        
+        /// <summary>
         /// Поле даты последнего изменения заметки.
         /// </summary>
+        [JsonProperty("lastModifiedAt")]
         private DateTime _lastModifiedAt = DateTime.Now;
 
         /// <summary>
@@ -34,6 +46,7 @@ namespace NoteApp.Models
         /// если название заметки равно null.</exception>
         /// <exception cref="ArgumentException">Выбрасывается в случае, 
         /// если название длиннее 50 символов.</exception>
+        [JsonIgnore]
         public string Name
         {
             get => _name;
@@ -54,6 +67,7 @@ namespace NoteApp.Models
         /// <summary>
         /// Свойство категории заметки.
         /// </summary>
+        [JsonIgnore]
         public Category Category
         {
             get => _category;
@@ -69,6 +83,7 @@ namespace NoteApp.Models
         /// Свойство текста заметки.
         /// </summary>
         /// <exception cref="NullReferenceException">Выбрасывается, если текст равен null.</exception>
+        [JsonIgnore]
         public string Text
         {
             get => _text;
@@ -85,33 +100,18 @@ namespace NoteApp.Models
         /// <summary>
         /// Свойство даты создания заметки.
         /// </summary>
-        public DateTime CreatedAt { get; private set; }
+        [JsonIgnore]
+        public DateTime CreatedAt => _createdAt;
 
         /// <summary>
         /// Свойство даты последнего изменения заметки.
         /// </summary>
+        [JsonIgnore]
         public DateTime LastModifiedAt
         {
             get => _lastModifiedAt;
             // Изменение допустимо только самим объектом.
             private set => _lastModifiedAt = value;
-        }
-
-        /// <summary>
-        /// Базовый конструктор заметки
-        /// </summary>
-        public Note()
-        {
-            CreatedAt = DateTime.Now;
-        }
-
-        /// <summary>
-        /// Конструктор заметки с параметром даты создания
-        /// </summary>
-        /// <param name="createdAt"></param>
-        internal Note(DateTime createdAt)
-        {
-            CreatedAt = createdAt;
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace NoteApp.Models
         {
             return new Note()
             {
-                CreatedAt = this.CreatedAt,
+                _createdAt = this._createdAt,
                 _category = this._category,
                 _name = this._name,
                 _text = this._text,

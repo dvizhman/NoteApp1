@@ -6,8 +6,6 @@ using NoteApp.Models;
 
 namespace NoteAppUI
 {
-    // TODO: Изменение LastModifiedAt
-    
     /// <summary>
     /// Класс формы редактирования заметки.
     /// </summary>
@@ -91,7 +89,7 @@ namespace NoteAppUI
             InitializeComponent();
             // Загрузка категорий
             LoadCategories();
-            Note = note;
+            Note = (Note)note.Clone();
             // Первичная настройка полей
             SetUpFields();
         }

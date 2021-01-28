@@ -147,6 +147,8 @@ namespace NoteAppUI
             dateTimePickerModifiedAt.Value = note.LastModifiedAt;
             // Смена текста заметки
             textBoxNoteText.Text = note.Text;
+            // Смена текущей заметки в Project
+            _project.CurrentNote = (Note)listBoxNotes.SelectedItem;
         }
         
         /// <summary>
@@ -240,6 +242,9 @@ namespace NoteAppUI
             LoadCategories();
             // Загрузка заметок
             LoadNotes();
+            // Выбор текущей заметки
+            if (_project.CurrentNote != null)
+                SelectNote(_project.CurrentNote);
         }
 
         /// <summary>
@@ -343,6 +348,16 @@ namespace NoteAppUI
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             DeleteNote();
+        }
+
+        /// <summary>
+        /// Обработчик события закрытия окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NoteForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProjectManager.Current.Save(_project);
         }
     }
 }
