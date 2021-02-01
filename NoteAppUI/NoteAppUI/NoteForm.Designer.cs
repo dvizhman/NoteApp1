@@ -231,6 +231,7 @@ namespace NoteAppUI
             this.listBoxNotes.Size = new System.Drawing.Size(188, 238);
             this.listBoxNotes.TabIndex = 1;
             this.listBoxNotes.SelectedIndexChanged += new System.EventHandler(this.listBoxNotes_SelectedIndexChanged);
+            this.listBoxNotes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listBoxNotes_KeyUp);
             // 
             // panelButtons
             // 

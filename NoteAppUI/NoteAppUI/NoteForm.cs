@@ -396,5 +396,18 @@ namespace NoteAppUI
         {
             ProjectManager.Current.Save(_project);
         }
+
+        private void listBoxNotes_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                DialogResult result = MessageBox.Show("Удалить заметку " + 
+                                                      _project.CurrentNote.Name + "?", 
+                    "Удалить", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                    if (listBoxNotes.Items.Count > 0)
+                        DeleteNote();
+            }
+        }
     }
 }
