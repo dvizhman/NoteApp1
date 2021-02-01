@@ -73,7 +73,7 @@ namespace NoteApp
         /// Создание нового файла проекта
         /// </summary>
         /// <returns></returns>
-        public void Create()
+        private void Create()
         {
             Save(new Project());
         }
@@ -86,7 +86,7 @@ namespace NoteApp
         #region Одиночка
         
         /// <summary>
-        /// Объект типа Lazy<T> позволяет инициализировать объект
+        /// Объект типа Lazy/T позволяет инициализировать объект
         /// класса T в момент первого обращения и избежать NRE.
         /// </summary>
         private static readonly Lazy<ProjectManager> Singleton = 
