@@ -130,13 +130,21 @@ namespace NoteAppUI
         }
 
         /// <summary>
+        /// Смена выбранной заметки
+        /// </summary>
+        /// <param name="note">Заметка</param>
+        private void ChangeSelectedNote(Note note)
+        {
+            // Смена индекса в списке заметок
+            listBoxNotes.SelectedIndex = listBoxNotes.Items.IndexOf(note);
+        }
+        
+        /// <summary>
         /// Отображение выбранной заметки
         /// </summary>
         /// <param name="note">Выбранная заметка</param>
         private void SelectNote(Note note)
         {
-            // Смена индекса в списке заметок
-            listBoxNotes.SelectedIndex = listBoxNotes.Items.IndexOf(note);
             // Смена названия
             labelName.Text = note.Name;
             // Смена отображаемой категории
@@ -148,7 +156,7 @@ namespace NoteAppUI
             // Смена текста заметки
             textBoxNoteText.Text = note.Text;
             // Смена текущей заметки в Project
-            _project.CurrentNote = (Note)listBoxNotes.SelectedItem;
+            _project.CurrentNote = note;
         }
         
         /// <summary>
@@ -175,7 +183,7 @@ namespace NoteAppUI
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
-                SelectNote(editForm.Note);
+                ChangeSelectedNote(editForm.Note);
             }
             // Включение формы
             Enabled = true;
@@ -205,7 +213,7 @@ namespace NoteAppUI
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
-                SelectNote(editForm.Note);
+                ChangeSelectedNote(editForm.Note);
             }
             // Включение формы
             Enabled = true;
@@ -244,7 +252,13 @@ namespace NoteAppUI
             LoadNotes();
             // Выбор текущей заметки
             if (_project.CurrentNote != null)
-                SelectNote(_project.CurrentNote);
+            {
+                int i = 0;
+                for (i = 0; i < listBoxNotes.Items.Count; i++)
+                    if (listBoxNotes.Items[i].Equals(_project.CurrentNote))
+                        break;
+                ChangeSelectedNote((Note)listBoxNotes.Items[i]);
+            }
         }
 
         /// <summary>
