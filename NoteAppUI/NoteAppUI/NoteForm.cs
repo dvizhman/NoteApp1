@@ -110,9 +110,18 @@ namespace NoteAppUI
         /// </summary>
         private void CleanUp()
         {
+            // Смена названия
             labelName.Text = "";
-            labelNoteCategory.Text = CategoryLabel;
+            // Смена отображаемой категории
+            labelNoteCategory.Text = "";
+            // Смена текста заметки
             textBoxNoteText.Text = "";
+            // Смена даты создания заметки
+            dateTimePickerCreatedAt.Value = DateTime.Now;
+            // Смена даты изменения заметки
+            dateTimePickerModifiedAt.Value = DateTime.Now;
+            // Смена текущей заметки в Project
+            _project.CurrentNote = null;
         }
 
         /// <summary>
@@ -132,13 +141,19 @@ namespace NoteAppUI
         /// <summary>
         /// Смена выбранной заметки
         /// </summary>
-        /// <param name="note">Заметка</param>
-        private void ChangeSelectedNote(Note note)
+        /// <param name="index">Индекс заметки в списке</param>
+        private void ChangeSelectedNote(int index)
         {
-            // Смена индекса в списке заметок
-            listBoxNotes.SelectedIndex = listBoxNotes.Items.IndexOf(note);
+            if (index != -1)
+            {
+                // Смена индекса в списке заметок
+                listBoxNotes.SelectedIndex = index;
+                SelectNote((Note)listBoxNotes.Items[listBoxNotes.SelectedIndex]);
+            }
+            else
+                CleanUp();
         }
-        
+
         /// <summary>
         /// Отображение выбранной заметки
         /// </summary>
@@ -183,7 +198,7 @@ namespace NoteAppUI
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
-                ChangeSelectedNote(editForm.Note);
+                ChangeSelectedNote(listBoxNotes.Items.IndexOf(editForm.Note));
             }
             // Включение формы
             Enabled = true;
@@ -213,7 +228,7 @@ namespace NoteAppUI
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
-                ChangeSelectedNote(editForm.Note);
+                ChangeSelectedNote(listBoxNotes.Items.IndexOf(editForm.Note));
             }
             // Включение формы
             Enabled = true;
@@ -248,16 +263,24 @@ namespace NoteAppUI
             CleanUp();
             // Загрузка списка категорий
             LoadCategories();
+            
+            listBoxNotes.SelectedIndexChanged -= listBoxNotes_SelectedIndexChanged;
             // Загрузка заметок
             LoadNotes();
+            listBoxNotes.SelectedIndex = -1;
+            listBoxNotes.SelectedIndexChanged += listBoxNotes_SelectedIndexChanged;
+
             // Выбор текущей заметки
             if (_project.CurrentNote != null)
             {
-                int i = 0;
-                for (i = 0; i < listBoxNotes.Items.Count; i++)
-                    if (listBoxNotes.Items[i].Equals(_project.CurrentNote))
+                int i = -1;
+                foreach (Note item in listBoxNotes.Items)
+                {
+                    i++;
+                    if (_project.CurrentNote.Equals((Note)listBoxNotes.Items[i]))
                         break;
-                ChangeSelectedNote((Note)listBoxNotes.Items[i]);
+                }
+                ChangeSelectedNote(i);
             }
         }
 

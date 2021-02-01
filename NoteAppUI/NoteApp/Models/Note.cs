@@ -5,7 +5,7 @@ namespace NoteApp.Models
     /// <summary>
     /// Класс заметки
     /// </summary>
-    public class Note : ICloneable
+    public class Note : ICloneable, IEquatable<Note>
     {
         /// <summary>
         /// Поле имени заметки
@@ -113,6 +113,18 @@ namespace NoteApp.Models
                 _text = this._text,
                 _lastModifiedAt = this._lastModifiedAt
             };
+        }
+
+        public bool Equals(Note other)
+        {
+            if (other == null)
+                return false;
+            return
+                CreatedAt == other.CreatedAt &&
+                Category == other.Category &&
+                Name == other.Name &&
+                Text == other.Text &&
+                LastModifiedAt == other.LastModifiedAt;
         }
     }
 }

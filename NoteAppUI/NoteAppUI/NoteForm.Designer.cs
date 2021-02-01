@@ -289,7 +289,7 @@ namespace NoteAppUI
             this.textBoxNoteText.Name = "textBoxNoteText";
             this.textBoxNoteText.ReadOnly = true;
             this.textBoxNoteText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxNoteText.Size = new System.Drawing.Size(392, 218);
+            this.textBoxNoteText.Size = new System.Drawing.Size(398, 218);
             this.textBoxNoteText.TabIndex = 6;
             // 
             // dateTimePickerModifiedAt
@@ -334,7 +334,7 @@ namespace NoteAppUI
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.labelNoteCategory.Location = new System.Drawing.Point(7, 26);
             this.labelNoteCategory.Name = "labelNoteCategory";
-            this.labelNoteCategory.Size = new System.Drawing.Size(388, 25);
+            this.labelNoteCategory.Size = new System.Drawing.Size(394, 25);
             this.labelNoteCategory.TabIndex = 1;
             this.labelNoteCategory.Text = "Категория: ";
             this.labelNoteCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -349,7 +349,7 @@ namespace NoteAppUI
                 System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.labelName.Location = new System.Drawing.Point(7, 3);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(388, 23);
+            this.labelName.Size = new System.Drawing.Size(394, 23);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название заметки";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
