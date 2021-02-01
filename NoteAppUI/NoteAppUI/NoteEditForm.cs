@@ -101,8 +101,18 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void textBox_Name_TextChanged(object sender, EventArgs e)
         {
-            Note.Name = textBox_Name.Text;
-            Note.SetModified();
+            try
+            {
+                Note.Name = textBox_Name.Text;
+                Note.SetModified();
+                errorProvider.SetError((TextBox)sender, "");
+                buttonOk.Enabled = true;
+            }
+            catch (ArgumentException ex)
+            {
+                errorProvider.SetError((TextBox)sender, ex.Message);
+                buttonOk.Enabled = false;
+            }
         }
 
         /// <summary>

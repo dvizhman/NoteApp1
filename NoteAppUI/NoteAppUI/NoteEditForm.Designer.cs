@@ -31,6 +31,7 @@ namespace NoteAppUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelName = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.labelCategory = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@ namespace NoteAppUI
             this.textBox_Text = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize) (this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelName
@@ -60,9 +63,9 @@ namespace NoteAppUI
                                                         System.Windows.Forms.AnchorStyles.Left) |
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Name.Location = new System.Drawing.Point(118, 11);
-            this.textBox_Name.MaxLength = 50;
+            this.textBox_Name.MaxLength = 1024;
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(354, 21);
+            this.textBox_Name.Size = new System.Drawing.Size(344, 21);
             this.textBox_Name.TabIndex = 1;
             this.textBox_Name.TextChanged += new System.EventHandler(this.textBox_Name_TextChanged);
             // 
@@ -161,6 +164,10 @@ namespace NoteAppUI
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // NoteEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +187,7 @@ namespace NoteAppUI
             this.MinimumSize = new System.Drawing.Size(500, 345);
             this.Name = "NoteEditForm";
             this.Text = "Редактирование заметки";
+            ((System.ComponentModel.ISupportInitialize) (this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -197,5 +205,6 @@ namespace NoteAppUI
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBox_Text;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
