@@ -37,7 +37,7 @@ namespace NoteApp
                 if (!File.Exists(NotesFile))
                     Create();
                 // Чтение файла
-                string data = File.ReadAllText(NotesFile, System.Text.Encoding.UTF8);
+                string data = File.ReadAllText(NotesFile, Encoding.UTF8);
                 // Десериализация данных
                 Project project = JsonConvert.DeserializeObject<Project>(data);
                 return project ?? new Project();

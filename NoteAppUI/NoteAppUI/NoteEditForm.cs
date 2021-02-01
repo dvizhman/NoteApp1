@@ -102,6 +102,7 @@ namespace NoteAppUI
         private void textBox_Name_TextChanged(object sender, EventArgs e)
         {
             Note.Name = textBox_Name.Text;
+            Note.SetModified();
         }
 
         /// <summary>
@@ -112,6 +113,7 @@ namespace NoteAppUI
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             Note.Category = ((KeyValuePair<Category,string>)comboBoxCategory.SelectedItem).Key;
+            Note.SetModified();
         }
         
         /// <summary>
@@ -122,6 +124,7 @@ namespace NoteAppUI
         private void textBox_Text_TextChanged(object sender, EventArgs e)
         {
             Note.Text = textBox_Text.Text;
+            Note.SetModified();
         }
 
         /// <summary>
