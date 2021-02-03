@@ -81,8 +81,9 @@ namespace NoteApp.Models
         /// </summary>
         public DateTime CreatedAt {
             get => _createdAt;
+            // Сеттер используется для десериализации
             set => _createdAt = value;
-        } 
+        }
 
         /// <summary>
         /// Свойство даты последнего изменения заметки.
@@ -90,10 +91,13 @@ namespace NoteApp.Models
         public DateTime LastModifiedAt
         {
             get => _lastModifiedAt;
-            // Изменение допустимо только самим объектом.
+            // Сеттер используется для десериализации
             set => _lastModifiedAt = value;
         }
 
+        /// <summary>
+        /// Метод изменяет дату изменения заметки на текущую
+        /// </summary>
         public void SetModified()
         {
             LastModifiedAt = DateTime.Now;
