@@ -31,6 +31,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PreBuildEvent>mkdir "$(SolutionDir)InstallScripts\Release"</PreBuildEvent>
+    <PostBuildEvent>
+      xcopy "$(ProjectDir)$(OutDir)*.exe" "$(SolutionDir)InstallScripts\Release"
+      xcopy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)InstallScripts\Release"
+      %25ISC%25 "$(SolutionDir)InstallScripts\InstallScript.iss"
+      rmdir /S /Q "$(SolutionDir)InstallScripts\Release"
+    </PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
