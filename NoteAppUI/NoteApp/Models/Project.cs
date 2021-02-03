@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,7 +7,7 @@ namespace NoteApp.Models
     /// <summary>
     /// Класс проекта заметок
     /// </summary>
-    public class Project
+    public class Project : IEquatable<Project>
     {
         /// <summary>
         /// Текущая заметка
@@ -42,6 +43,15 @@ namespace NoteApp.Models
                 Where(i => i.Category == category).
                 OrderByDescending(k => k.LastModifiedAt).
                 ToList();
+        }
+        
+        public bool Equals(Project other)
+        {
+            if (other == null)
+                return false;
+            bool notesEqual = Notes.SequenceEqual(other.Notes);
+            bool currentNoteEqual = (Equals(CurrentNote, (other as Project)?.CurrentNote));
+            return notesEqual && currentNoteEqual;
         }
     }
 }
