@@ -27,10 +27,23 @@ namespace NoteAppUI
                 {Category.Other, "Прочее"}
             };
 
+        private Note _note = new Note()
+        {
+            Category = _categories.First().Key
+        };
+        
         /// <summary>
         /// Редактируемая заметка
         /// </summary>
-        public Note Note { get; } = new Note();
+        public Note Note
+        {
+            get => _note;
+            set
+            {
+                _note = value;
+                SetUpFields();
+            }
+        } 
 
         /// <summary>
         /// Первичная настройка полей формы
@@ -69,27 +82,6 @@ namespace NoteAppUI
             InitializeComponent();
             // Загрузка списка категорий
             LoadCategories();
-            Note = new Note()
-            {
-                Category = ((KeyValuePair<Category, string>)(comboBoxCategory.SelectedItem)).Key
-            };
-            // Первичная настройка полей
-            SetUpFields();
-        }
-
-        /// <summary>
-        /// Конструктор формы редактирования заметки.
-        /// Принимает в себя заметку для редактирования.
-        /// </summary>
-        /// <param name="note">Заметка для редактирования</param>
-        public NoteEditForm(Note note)
-        {
-            // Присвоение переданной заметки в форму для дальнейшего редактирования
-            
-            InitializeComponent();
-            // Загрузка категорий
-            LoadCategories();
-            Note = (Note)note.Clone();
             // Первичная настройка полей
             SetUpFields();
         }

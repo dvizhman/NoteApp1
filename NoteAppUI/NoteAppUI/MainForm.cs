@@ -209,7 +209,7 @@ namespace NoteAppUI
             var selectedNote = (Note) listBoxNotes.SelectedItem;
             int index = _project.Notes.IndexOf(selectedNote);
             // Создание формы редактирования
-            var editForm = new NoteEditForm(selectedNote);
+            var editForm = new NoteEditForm() {Note = selectedNote};
             // Отключение данной формы
             Enabled = false;
             // Отображение формы редактирования и ожидание результата
