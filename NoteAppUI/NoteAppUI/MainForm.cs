@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NoteApp;
 using NoteApp.Models;
+using NoteAppUI.Enums;
 
 namespace NoteAppUI
 {
@@ -23,17 +19,17 @@ namespace NoteAppUI
         /// Словарь категорий для отображения в программе.
         /// Сопоставление перечислимого типа и текстового представления.
         /// </summary>
-        private static readonly Dictionary<Category, string> Categories = 
-            new Dictionary<Category, string>()
+        private static readonly Dictionary<ShownCategory, string> Categories = 
+            new Dictionary<ShownCategory, string>()
             {
-                {Category.All, "Все"},
-                {Category.Work, "Работа"},
-                {Category.People, "Люди"},
-                {Category.Home, "Дом"},
-                {Category.Health, "Здоровье"},
-                {Category.Financial, "Финансы"},
-                {Category.Documents, "Документы"},
-                {Category.Other, "Прочее"}
+                {ShownCategory.All, "Все"},
+                {ShownCategory.Work, "Работа"},
+                {ShownCategory.People, "Люди"},
+                {ShownCategory.Home, "Дом"},
+                {ShownCategory.Health, "Здоровье"},
+                {ShownCategory.Financial, "Финансы"},
+                {ShownCategory.Documents, "Документы"},
+                {ShownCategory.Other, "Прочее"}
             };
         
         /// <summary>
@@ -59,15 +55,15 @@ namespace NoteAppUI
         /// Обновление списка заметок
         /// </summary>
         /// <param name="category">Категория. Если не указана, то All.</param>
-        private void BindNotes(Category category = Category.All)
+        private void BindNotes(ShownCategory category = ShownCategory.All)
         {
             // Если выбраны все категории, то получить и отобразить
             // отсортированный по дате изменения список заметок,
             // иначе отобразить отсортированный по дате изменения
             // список заметок определённой категории.
-            listBoxNotes.DataSource = category == Category.All ? 
+            listBoxNotes.DataSource = category == ShownCategory.All ? 
                 new BindingSource(_project.SortByDate(), null) : 
-                new BindingSource(_project.SortByDate(category), null);
+                new BindingSource(_project.SortByDate((Category)category), null);
             // Отобразить название заметки в списке заметок
             listBoxNotes.DisplayMember = nameof(Note.Name);
             // Если список заметок пуст, очистить правую часть
@@ -163,7 +159,7 @@ namespace NoteAppUI
             // Смена названия
             labelName.Text = note.Name;
             // Смена отображаемой категории
-            labelNoteCategory.Text = CategoryLabel + Categories[note.Category];
+            labelNoteCategory.Text = CategoryLabel + Categories[(ShownCategory)note.Category];
             // Смена даты создания заметки
             dateTimePickerCreatedAt.Value = note.CreatedAt;
             // Смена даты изменения заметки
@@ -192,9 +188,9 @@ namespace NoteAppUI
                 _project.Notes.Add(editForm.Note);
                 // Смена категории
                 comboBoxCategory.SelectedItem = 
-                    Categories.FirstOrDefault(i => i.Key == editForm.Note.Category);
+                    Categories.FirstOrDefault(i => i.Key == (ShownCategory)editForm.Note.Category);
                 // Обновить заметки
-                BindNotes(editForm.Note.Category);
+                BindNotes((ShownCategory)editForm.Note.Category);
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
@@ -225,9 +221,9 @@ namespace NoteAppUI
                 _project.Notes[index] = editForm.Note;
                 // Смена категории
                 comboBoxCategory.SelectedItem = 
-                    Categories.FirstOrDefault(i => i.Key == editForm.Note.Category);
+                    Categories.FirstOrDefault(i => i.Key == (ShownCategory)editForm.Note.Category);
                 // Обновить заметки
-                BindNotes(editForm.Note.Category);
+                BindNotes((ShownCategory)editForm.Note.Category);
                 // Сохранить проект на диск
                 ProjectManager.Current.Save(_project);
                 // Выбрать свежесозданную заметку
@@ -356,7 +352,7 @@ namespace NoteAppUI
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Заново сформировать список из заметок только выбранной категории
-            BindNotes(((KeyValuePair<Category,string>)comboBoxCategory.SelectedItem).Key);
+            BindNotes(((KeyValuePair<ShownCategory,string>)comboBoxCategory.SelectedItem).Key);
         }
 
         /// <summary>
