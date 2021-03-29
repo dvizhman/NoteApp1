@@ -49,9 +49,9 @@ namespace NoteAppUI
             // 
             // labelName
             // 
-            this.labelName.Location = new System.Drawing.Point(12, 9);
+            this.labelName.Location = new System.Drawing.Point(14, 10);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(100, 23);
+            this.labelName.Size = new System.Drawing.Size(117, 25);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -62,18 +62,18 @@ namespace NoteAppUI
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
                                                        System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Name.Location = new System.Drawing.Point(118, 11);
+            this.textBox_Name.Location = new System.Drawing.Point(138, 12);
             this.textBox_Name.MaxLength = 1024;
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(344, 21);
+            this.textBox_Name.Size = new System.Drawing.Size(401, 23);
             this.textBox_Name.TabIndex = 1;
             this.textBox_Name.TextChanged += new System.EventHandler(this.textBox_Name_TextChanged);
             // 
             // labelCategory
             // 
-            this.labelCategory.Location = new System.Drawing.Point(12, 32);
+            this.labelCategory.Location = new System.Drawing.Point(14, 34);
             this.labelCategory.Name = "labelCategory";
-            this.labelCategory.Size = new System.Drawing.Size(100, 23);
+            this.labelCategory.Size = new System.Drawing.Size(117, 25);
             this.labelCategory.TabIndex = 2;
             this.labelCategory.Text = "Категория";
             this.labelCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -81,18 +81,18 @@ namespace NoteAppUI
             // comboBoxCategory
             // 
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(118, 34);
+            this.comboBoxCategory.Location = new System.Drawing.Point(138, 37);
             this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(116, 21);
+            this.comboBoxCategory.Size = new System.Drawing.Size(135, 22);
             this.comboBoxCategory.TabIndex = 3;
             this.comboBoxCategory.SelectedIndexChanged +=
                 new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // labelCreatedAt
             // 
-            this.labelCreatedAt.Location = new System.Drawing.Point(12, 55);
+            this.labelCreatedAt.Location = new System.Drawing.Point(14, 59);
             this.labelCreatedAt.Name = "labelCreatedAt";
-            this.labelCreatedAt.Size = new System.Drawing.Size(100, 23);
+            this.labelCreatedAt.Size = new System.Drawing.Size(117, 25);
             this.labelCreatedAt.TabIndex = 4;
             this.labelCreatedAt.Text = "Создана";
             this.labelCreatedAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,16 +100,16 @@ namespace NoteAppUI
             // dateTimePickerCreatedAt
             // 
             this.dateTimePickerCreatedAt.Enabled = false;
-            this.dateTimePickerCreatedAt.Location = new System.Drawing.Point(118, 57);
+            this.dateTimePickerCreatedAt.Location = new System.Drawing.Point(138, 61);
             this.dateTimePickerCreatedAt.Name = "dateTimePickerCreatedAt";
-            this.dateTimePickerCreatedAt.Size = new System.Drawing.Size(116, 21);
+            this.dateTimePickerCreatedAt.Size = new System.Drawing.Size(135, 23);
             this.dateTimePickerCreatedAt.TabIndex = 5;
             // 
             // labelModifiedAt
             // 
-            this.labelModifiedAt.Location = new System.Drawing.Point(240, 55);
+            this.labelModifiedAt.Location = new System.Drawing.Point(280, 59);
             this.labelModifiedAt.Name = "labelModifiedAt";
-            this.labelModifiedAt.Size = new System.Drawing.Size(100, 23);
+            this.labelModifiedAt.Size = new System.Drawing.Size(117, 25);
             this.labelModifiedAt.TabIndex = 6;
             this.labelModifiedAt.Text = "Изменена";
             this.labelModifiedAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,9 +117,9 @@ namespace NoteAppUI
             // dateTimePickerModifiedAt
             // 
             this.dateTimePickerModifiedAt.Enabled = false;
-            this.dateTimePickerModifiedAt.Location = new System.Drawing.Point(346, 57);
+            this.dateTimePickerModifiedAt.Location = new System.Drawing.Point(404, 61);
             this.dateTimePickerModifiedAt.Name = "dateTimePickerModifiedAt";
-            this.dateTimePickerModifiedAt.Size = new System.Drawing.Size(116, 21);
+            this.dateTimePickerModifiedAt.Size = new System.Drawing.Size(135, 23);
             this.dateTimePickerModifiedAt.TabIndex = 7;
             // 
             // textBox_Text
@@ -129,12 +129,12 @@ namespace NoteAppUI
                                                          System.Windows.Forms.AnchorStyles.Bottom) |
                                                         System.Windows.Forms.AnchorStyles.Left) |
                                                        System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Text.Location = new System.Drawing.Point(12, 81);
+            this.textBox_Text.Location = new System.Drawing.Point(14, 87);
             this.textBox_Text.MaxLength = 65535;
             this.textBox_Text.Multiline = true;
             this.textBox_Text.Name = "textBox_Text";
             this.textBox_Text.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Text.Size = new System.Drawing.Size(460, 285);
+            this.textBox_Text.Size = new System.Drawing.Size(525, 200);
             this.textBox_Text.TabIndex = 8;
             this.textBox_Text.TextChanged += new System.EventHandler(this.textBox_Text_TextChanged);
             // 
@@ -143,9 +143,9 @@ namespace NoteAppUI
             this.buttonCancel.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(403, 372);
+            this.buttonCancel.Location = new System.Drawing.Point(459, 294);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(69, 22);
+            this.buttonCancel.Size = new System.Drawing.Size(80, 24);
             this.buttonCancel.TabIndex = 10;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@ namespace NoteAppUI
             this.buttonOk.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(328, 372);
+            this.buttonOk.Location = new System.Drawing.Point(372, 294);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(69, 22);
+            this.buttonOk.Size = new System.Drawing.Size(80, 24);
             this.buttonOk.TabIndex = 9;
             this.buttonOk.Text = "ОК";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -170,9 +170,9 @@ namespace NoteAppUI
             // 
             // NoteEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 406);
+            this.ClientSize = new System.Drawing.Size(554, 330);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBox_Text);
@@ -184,7 +184,7 @@ namespace NoteAppUI
             this.Controls.Add(this.labelCategory);
             this.Controls.Add(this.textBox_Name);
             this.Controls.Add(this.labelName);
-            this.MinimumSize = new System.Drawing.Size(500, 345);
+            this.MinimumSize = new System.Drawing.Size(570, 369);
             this.Name = "NoteEditForm";
             this.Text = "Редактирование заметки";
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider)).EndInit();

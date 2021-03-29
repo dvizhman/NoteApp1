@@ -1,7 +1,7 @@
 ﻿
 namespace NoteAppUI
 {
-    partial class NoteForm
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -248,6 +248,8 @@ namespace NoteAppUI
             // 
             this.buttonRemove.BackgroundImage = global::NoteAppUI.Icons.Icons.Delete;
             this.buttonRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRemove.FlatAppearance.BorderSize = 0;
+            this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Location = new System.Drawing.Point(63, 3);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(24, 24);
@@ -259,6 +261,8 @@ namespace NoteAppUI
             // 
             this.buttonEdit.BackgroundImage = global::NoteAppUI.Icons.Icons.Edit;
             this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEdit.FlatAppearance.BorderSize = 0;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Location = new System.Drawing.Point(33, 3);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(24, 24);
@@ -270,6 +274,8 @@ namespace NoteAppUI
             // 
             this.buttonAdd.BackgroundImage = global::NoteAppUI.Icons.Icons.Add;
             this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Location = new System.Drawing.Point(3, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(24, 24);
@@ -290,7 +296,7 @@ namespace NoteAppUI
             this.textBoxNoteText.Name = "textBoxNoteText";
             this.textBoxNoteText.ReadOnly = true;
             this.textBoxNoteText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxNoteText.Size = new System.Drawing.Size(389, 218);
+            this.textBoxNoteText.Size = new System.Drawing.Size(392, 218);
             this.textBoxNoteText.TabIndex = 6;
             // 
             // dateTimePickerModifiedAt
@@ -335,7 +341,7 @@ namespace NoteAppUI
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.labelNoteCategory.Location = new System.Drawing.Point(7, 26);
             this.labelNoteCategory.Name = "labelNoteCategory";
-            this.labelNoteCategory.Size = new System.Drawing.Size(400, 25);
+            this.labelNoteCategory.Size = new System.Drawing.Size(403, 25);
             this.labelNoteCategory.TabIndex = 1;
             this.labelNoteCategory.Text = "Категория: ";
             this.labelNoteCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -350,7 +356,7 @@ namespace NoteAppUI
                 System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.labelName.Location = new System.Drawing.Point(7, 3);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(400, 23);
+            this.labelName.Size = new System.Drawing.Size(403, 23);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название заметки";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -363,7 +369,7 @@ namespace NoteAppUI
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.menuStripMain);
             this.MinimumSize = new System.Drawing.Size(621, 375);
-            this.Name = "NoteForm";
+            this.Name = "MainForm";
             this.Text = "Заметки";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NoteForm_FormClosing);
             this.menuStripMain.ResumeLayout(false);

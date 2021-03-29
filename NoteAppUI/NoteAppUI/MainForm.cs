@@ -15,7 +15,7 @@ namespace NoteAppUI
     /// <summary>
     /// Класс главного окна программы
     /// </summary>
-    public partial class NoteForm : Form
+    public partial class MainForm : Form
     {
         private const string CategoryLabel = "Категория: ";
         
@@ -256,7 +256,7 @@ namespace NoteAppUI
         /// <summary>
         /// Конструктор главного окна программы
         /// </summary>
-        public NoteForm()
+        public MainForm()
         {
             InitializeComponent();
             // Очистка label'ов
@@ -273,14 +273,13 @@ namespace NoteAppUI
             // Выбор текущей заметки
             if (_project.CurrentNote != null)
             {
-                int i = -1;
-                foreach (Note item in listBoxNotes.Items)
+                for (int i = 0; i < listBoxNotes.Items.Count; i++)
                 {
-                    i++;
-                    if (_project.CurrentNote.Equals((Note)listBoxNotes.Items[i]))
-                        break;
+                    if (!_project.CurrentNote.Equals((Note) listBoxNotes.Items[i])) 
+                        continue;
+                    ChangeSelectedNote(i);
+                    break;
                 }
-                ChangeSelectedNote(i);
             }
         }
 
