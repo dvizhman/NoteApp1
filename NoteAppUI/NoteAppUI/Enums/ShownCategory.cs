@@ -2,6 +2,9 @@
 
 namespace NoteAppUI.Enums
 {
+    /// <summary>
+    /// Отображаемые в главном окне приложения категории заметок.
+    /// </summary>
     public enum ShownCategory
     {
         Work = Category.Work,
