@@ -44,45 +44,45 @@ namespace NoteAppUI
             // 
             this.labelName.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.labelName.Location = new System.Drawing.Point(12, 9);
+            this.labelName.Location = new System.Drawing.Point(14, 10);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(210, 23);
+            this.labelName.Size = new System.Drawing.Size(245, 25);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "NoteApp";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion
             // 
-            this.labelVersion.Location = new System.Drawing.Point(12, 32);
+            this.labelVersion.Location = new System.Drawing.Point(14, 34);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(210, 23);
+            this.labelVersion.Size = new System.Drawing.Size(245, 25);
             this.labelVersion.TabIndex = 1;
             this.labelVersion.Text = "v 1.0.0";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelAuthor
             // 
-            this.labelAuthor.Location = new System.Drawing.Point(12, 55);
+            this.labelAuthor.Location = new System.Drawing.Point(14, 59);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(210, 23);
+            this.labelAuthor.Size = new System.Drawing.Size(245, 25);
             this.labelAuthor.TabIndex = 2;
             this.labelAuthor.Text = "Автор: Монгуш Саян";
             this.labelAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelEmail
             // 
-            this.labelEmail.Location = new System.Drawing.Point(12, 78);
+            this.labelEmail.Location = new System.Drawing.Point(14, 84);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(210, 23);
+            this.labelEmail.Size = new System.Drawing.Size(245, 25);
             this.labelEmail.TabIndex = 3;
             this.labelEmail.Text = "E-Mail:";
             this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // linkLabelEmail
             // 
-            this.linkLabelEmail.Location = new System.Drawing.Point(12, 101);
+            this.linkLabelEmail.Location = new System.Drawing.Point(14, 109);
             this.linkLabelEmail.Name = "linkLabelEmail";
-            this.linkLabelEmail.Size = new System.Drawing.Size(210, 23);
+            this.linkLabelEmail.Size = new System.Drawing.Size(245, 25);
             this.linkLabelEmail.TabIndex = 4;
             this.linkLabelEmail.TabStop = true;
             this.linkLabelEmail.Text = "sayan.monugsh@gmail.com";
@@ -92,18 +92,18 @@ namespace NoteAppUI
             // 
             // labelGitHub
             // 
-            this.labelGitHub.Location = new System.Drawing.Point(12, 124);
+            this.labelGitHub.Location = new System.Drawing.Point(14, 134);
             this.labelGitHub.Name = "labelGitHub";
-            this.labelGitHub.Size = new System.Drawing.Size(210, 23);
+            this.labelGitHub.Size = new System.Drawing.Size(245, 25);
             this.labelGitHub.TabIndex = 5;
             this.labelGitHub.Text = "GitHub:";
             this.labelGitHub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // linkLabelGitHub
             // 
-            this.linkLabelGitHub.Location = new System.Drawing.Point(12, 147);
+            this.linkLabelGitHub.Location = new System.Drawing.Point(14, 158);
             this.linkLabelGitHub.Name = "linkLabelGitHub";
-            this.linkLabelGitHub.Size = new System.Drawing.Size(210, 23);
+            this.linkLabelGitHub.Size = new System.Drawing.Size(245, 25);
             this.linkLabelGitHub.TabIndex = 6;
             this.linkLabelGitHub.TabStop = true;
             this.linkLabelGitHub.Text = "https://github.com/dvizhman/NoteApp1";
@@ -113,9 +113,9 @@ namespace NoteAppUI
             // 
             // AboutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 221);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(285, 238);
             this.Controls.Add(this.linkLabelGitHub);
             this.Controls.Add(this.labelGitHub);
             this.Controls.Add(this.linkLabelEmail);
@@ -125,9 +125,9 @@ namespace NoteAppUI
             this.Controls.Add(this.labelName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(250, 250);
+            this.MaximumSize = new System.Drawing.Size(291, 267);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(250, 250);
+            this.MinimumSize = new System.Drawing.Size(291, 267);
             this.Name = "AboutForm";
             this.Text = "О программе";
             this.ResumeLayout(false);

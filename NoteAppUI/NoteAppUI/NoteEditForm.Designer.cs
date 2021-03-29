@@ -143,7 +143,7 @@ namespace NoteAppUI
             this.buttonCancel.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(459, 294);
+            this.buttonCancel.Location = new System.Drawing.Point(458, 294);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(80, 24);
             this.buttonCancel.TabIndex = 10;
@@ -170,8 +170,8 @@ namespace NoteAppUI
             // 
             // NoteEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(554, 330);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
