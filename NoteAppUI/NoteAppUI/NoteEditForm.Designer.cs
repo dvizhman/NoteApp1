@@ -94,7 +94,7 @@ namespace NoteAppUI
             this.labelCreatedAt.Name = "labelCreatedAt";
             this.labelCreatedAt.Size = new System.Drawing.Size(117, 25);
             this.labelCreatedAt.TabIndex = 4;
-            this.labelCreatedAt.Text = "Создана";
+            this.labelCreatedAt.Text = "Создано:";
             this.labelCreatedAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dateTimePickerCreatedAt
@@ -111,7 +111,7 @@ namespace NoteAppUI
             this.labelModifiedAt.Name = "labelModifiedAt";
             this.labelModifiedAt.Size = new System.Drawing.Size(117, 25);
             this.labelModifiedAt.TabIndex = 6;
-            this.labelModifiedAt.Text = "Изменена";
+            this.labelModifiedAt.Text = "Изменено:";
             this.labelModifiedAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dateTimePickerModifiedAt

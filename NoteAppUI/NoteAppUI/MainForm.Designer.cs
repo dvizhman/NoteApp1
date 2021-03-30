@@ -313,11 +313,11 @@ namespace NoteAppUI
             // 
             // labelModifiedAt
             // 
-            this.labelModifiedAt.Location = new System.Drawing.Point(234, 55);
+            this.labelModifiedAt.Location = new System.Drawing.Point(238, 55);
             this.labelModifiedAt.Name = "labelModifiedAt";
-            this.labelModifiedAt.Size = new System.Drawing.Size(73, 23);
+            this.labelModifiedAt.Size = new System.Drawing.Size(71, 23);
             this.labelModifiedAt.TabIndex = 4;
-            this.labelModifiedAt.Text = "Изменено";
+            this.labelModifiedAt.Text = "Изменено:";
             this.labelModifiedAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dateTimePickerCreatedAt
@@ -332,9 +332,9 @@ namespace NoteAppUI
             // 
             this.labelCreatedAt.Location = new System.Drawing.Point(8, 55);
             this.labelCreatedAt.Name = "labelCreatedAt";
-            this.labelCreatedAt.Size = new System.Drawing.Size(70, 23);
+            this.labelCreatedAt.Size = new System.Drawing.Size(71, 23);
             this.labelCreatedAt.TabIndex = 2;
-            this.labelCreatedAt.Text = "Создано";
+            this.labelCreatedAt.Text = "Создано:";
             this.labelCreatedAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelNoteCategory
