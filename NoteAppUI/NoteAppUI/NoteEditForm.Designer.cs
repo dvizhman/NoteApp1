@@ -186,6 +186,7 @@ namespace NoteAppUI
             this.Controls.Add(this.labelName);
             this.MinimumSize = new System.Drawing.Size(570, 369);
             this.Name = "NoteEditForm";
+            this.ShowIcon = false;
             this.Text = "Редактирование заметки";
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider)).EndInit();
             this.ResumeLayout(false);
