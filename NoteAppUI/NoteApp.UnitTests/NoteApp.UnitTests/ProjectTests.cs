@@ -15,16 +15,9 @@ namespace NoteApp.UnitTests
         /// <summary>
         /// Проект
         /// </summary>
-        private Project _project;
-
-        /// <summary>
-        /// Подготовка к тестам
-        /// </summary>
-        [SetUp]
-        public void SetUp()
+        private Project _project = new Project()
         {
-            _project = new Project();
-            _project.Notes = new List<Note>()
+            Notes = new List<Note>()
             {
                 new Note()
                 {
@@ -50,22 +43,28 @@ namespace NoteApp.UnitTests
                     CreatedAt = new DateTime(2021, 02, 01),
                     LastModifiedAt = new DateTime(2021, 02, 02)
                 }
-            };
-        }
+            }
+        };
 
-        [TestCase(Description = "Позитивный тест CurrentNote")]
+        [TestCase(TestName = "Позитивный тест CurrentNote")]
         public void CurrentNotePositiveTest()
         {
+            // Setup
             var expected = new Note();
+            
+            // Act
             expected.Name = "Заметка";
             _project.CurrentNote = expected;
+            
+            // Assert
             // Тест считается успешным, если фактическая текущая заметка равна ожидаемой.
             Assert.AreEqual(_project.CurrentNote, expected, "Фактическая текущая заметка не равна ожидаемой.");
         }
 
-        [TestCase(Description = "Позитивный тест Notes")]
+        [TestCase(TestName = "Позитивный тест Notes")]
         public void NotesPositiveTest()
         {
+            // Setup
             var expected = new List<Note>()
             {
                 new Note()
@@ -77,14 +76,19 @@ namespace NoteApp.UnitTests
                     Text = "Текст"
                 }
             };
+            
+            // Act
             _project.Notes = expected;
+            
+            // Assert
             // Тест считается успешным, если список заметок совпадает с ожидаемым.
             Assert.AreEqual(_project.Notes, expected, "Список заметок не совпадает с ожидаемым.");
         }
 
-        [TestCase(Description = "Тест SortByDate()")]
+        [TestCase(TestName = "Тест SortByDate()")]
         public void SortByDateTest()
         {
+            // Assert
             // Тест считается успешным, если заметки отсортируются в порядке убывания.
             Assert.AreEqual(_project.
                 Notes
@@ -92,9 +96,10 @@ namespace NoteApp.UnitTests
                 .ToList(), _project.SortByDate(), "Сортировка по убыванию даты работает некорректно.");
         }
 
-        [TestCase(Description = "Тест SortByDate(Category)")]
+        [TestCase(TestName = "Тест SortByDate(Category)")]
         public void SortByDateFromCategoryTest()
         {
+            // Assert
             // Тест считается успешным, если заметки определённой категории отсортируются
             // в порядке убывания.
             Assert.AreEqual(_project

@@ -27,24 +27,24 @@ namespace NoteApp
         /// Загружает проект из файла
         /// </summary>
         /// <returns>Проект</returns>
-        public Project Load()
+        public Project Load(string folder, string file)
         {
             try
             {
                 // Создание папки приложения
-                Directory.CreateDirectory(AppFolder);
+                Directory.CreateDirectory(folder);
                 // Создание файла проекта в случае его отсутствия
-                if (!File.Exists(NotesFile))
+                if (!File.Exists(file))
                     Create();
                 // Чтение файла
-                string data = File.ReadAllText(NotesFile, Encoding.UTF8);
+                string data = File.ReadAllText(file, Encoding.UTF8);
                 // Десериализация данных
                 Project project = JsonConvert.DeserializeObject<Project>(data);
                 return project ?? new Project();
             }
             catch (Exception)
             {
-                throw new Exception("Ошибка чтения файла " + NotesFile);
+                throw new Exception("Ошибка чтения файла " + file);
             }
         }
 
@@ -52,7 +52,7 @@ namespace NoteApp
         /// Записывает проект в файл
         /// </summary>
         /// <param name="project">Проект</param>
-        public void Save(Project project)
+        public void Save(Project project, string path)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace NoteApp
                 // Сериализация данных
                 string data = JsonConvert.SerializeObject(project);
                 // Запись
-                File.WriteAllText(NotesFile, data, Encoding.UTF8);
+                File.WriteAllText(path, data, Encoding.UTF8);
             }
             catch (Exception)
             {
@@ -75,7 +75,7 @@ namespace NoteApp
         /// <returns></returns>
         private void Create()
         {
-            Save(new Project());
+            Save(new Project(), NotesFile);
         }
         
         /* Паттерн "Одиночка" позволяет гарантированно иметь

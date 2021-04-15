@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -13,38 +14,38 @@ namespace NoteApp.UnitTests
     [TestFixture]
     public class ProjectManagerTests
     {
-        [SetUp]
-        public void SetUp()
-        {
-            if (File.Exists(ProjectManager.NotesFile))
-                File.Move(ProjectManager.NotesFile, ProjectManager.NotesFile + ".test");
-        }
+        private static string _testFolder = Directory.GetCurrentDirectory();
+        private static string _testFile = _testFolder + @"\Notes.test";
 
-        [TearDown]
-        public void TearDown()
+        private void Setup()
         {
-            if (File.Exists(ProjectManager.NotesFile + ".test"))
+            if (File.Exists(_testFile))
             {
-                File.Delete(ProjectManager.NotesFile);
-                File.Move(ProjectManager.NotesFile  + ".test", ProjectManager.NotesFile);
+                File.Delete(_testFile);
             }
+            File.Create(_testFile).Close();
         }
-
-        [TestCase(Description = "Тест создания нового файла проекта")]
+        
+        [TestCase(TestName = "Тест создания нового файла проекта")]
         public void LoadNewTest()
         {
-            if (File.Exists(ProjectManager.NotesFile))
-                File.Delete(ProjectManager.NotesFile);
-            var project = ProjectManager.Current.Load();
+            // Setup
+            Setup();
+            
+            // Act
+            var project = ProjectManager.Current.Load(_testFolder, _testFile);
             // Тест считается успешным, если свежесозданный проект пуст.
             var expected = new Project();
-            bool lol = expected.Equals(project);
+            
+            // Assert
             Assert.AreEqual(project, expected, "Новый проект не пуст.");
         }
 
-        [TestCase(Description = "Тест загрузки существующего файла проекта")]
+        [TestCase(TestName = "Тест загрузки существующего файла проекта")]
         public void LoadTest()
         {
+            // Setup
+            Setup();
             var project = new Project()
             {
                 Notes = new List<Note>()
@@ -55,19 +56,37 @@ namespace NoteApp.UnitTests
                     }
                 }
             };
-            if (File.Exists(ProjectManager.NotesFile))
-                File.Delete(ProjectManager.NotesFile);
-            File.WriteAllText(ProjectManager.NotesFile,
+            
+            // Act
+            File.WriteAllText(_testFile,
                 JsonConvert.SerializeObject(project),
                 Encoding.UTF8);
+            
+            // Assert
             // Тест будет считаться успешным, если загруженный проект
             // не будет отличаться от сохранённого.
-            Assert.AreEqual(project, ProjectManager.Current.Load(), "Проект из файла отличается от исходного.");
+            Assert.AreEqual(project, ProjectManager.Current.Load(_testFolder, _testFile), 
+                "Проект из файла отличается от исходного.");
         }
 
-        [TestCase(Description = "Тест сохранения файла проекта")]
+        [TestCase(TestName = "Тест загрузки повреждённого файла")]
+        public void LoadCorruptedTest()
+        {
+            // Setup
+            Setup();
+            
+            // Act
+            File.WriteAllText(_testFile, "corrupted", Encoding.UTF8);
+            
+            // Assert
+            Assert.Throws<Exception>(() => ProjectManager.Current.Load(_testFolder, _testFile));
+        }
+
+        [TestCase(TestName = "Тест сохранения файла проекта")]
         public void SaveTest()
         {
+            // Setup
+            Setup();
             var project = new Project()
             {
                 Notes = new List<Note>()
@@ -78,12 +97,14 @@ namespace NoteApp.UnitTests
                     }
                 }
             };
-            if (File.Exists(ProjectManager.NotesFile))
-                File.Delete(ProjectManager.NotesFile);
-            ProjectManager.Current.Save(project);
+            
+            // Act
+            ProjectManager.Current.Save(project, _testFile);
+            
+            // Assert
             // Тест будет считаться успешным, если проект корректно
             // сохранится.
-            Assert.AreEqual(File.ReadAllText(ProjectManager.NotesFile, Encoding.UTF8),
+            Assert.AreEqual(File.ReadAllText(_testFile, Encoding.UTF8),
                 JsonConvert.SerializeObject(project));
         }
     }
