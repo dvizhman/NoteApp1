@@ -96,7 +96,7 @@ namespace NoteAppUI
         private void LoadNotes()
         {
             // Загрузить проект из файла
-            _project = ProjectManager.Current.Load();
+            _project = ProjectManager.Current.Load(ProjectManager.AppFolder, ProjectManager.NotesFile);
             // Отобразить заметки
             BindNotes();
         }
@@ -192,7 +192,7 @@ namespace NoteAppUI
                 // Обновить заметки
                 BindNotes((ShownCategory)editForm.Note.Category);
                 // Сохранить проект на диск
-                ProjectManager.Current.Save(_project);
+                ProjectManager.Current.Save(_project, ProjectManager.NotesFile);
                 // Выбрать свежесозданную заметку
                 ChangeSelectedNote(listBoxNotes.Items.IndexOf(editForm.Note));
             }
@@ -225,7 +225,7 @@ namespace NoteAppUI
                 // Обновить заметки
                 BindNotes((ShownCategory)editForm.Note.Category);
                 // Сохранить проект на диск
-                ProjectManager.Current.Save(_project);
+                ProjectManager.Current.Save(_project, ProjectManager.NotesFile);
                 // Выбрать свежесозданную заметку
                 ChangeSelectedNote(listBoxNotes.Items.IndexOf(editForm.Note));
             }
@@ -246,7 +246,7 @@ namespace NoteAppUI
             // Обновить заметки
             BindNotes();
             // Сохранить проект на диск
-            ProjectManager.Current.Save(_project);
+            ProjectManager.Current.Save(_project, ProjectManager.NotesFile);
             // Если список заметок не пуст, выбрать первую
             if (listBoxNotes.Items.Count > 0)
                 listBoxNotes.SelectedIndex = 0;
@@ -392,7 +392,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void NoteForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ProjectManager.Current.Save(_project);
+            ProjectManager.Current.Save(_project, ProjectManager.NotesFile);
         }
 
         private void listBoxNotes_KeyUp(object sender, KeyEventArgs e)
