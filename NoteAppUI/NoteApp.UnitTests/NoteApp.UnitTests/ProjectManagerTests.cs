@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace NoteApp.UnitTests
 {
     /// <summary>
-    /// Класс юнит-тестов ProjectManager
+    /// Класс юнит-тестов ProjectManagerTests
     /// </summary>
     [TestFixture]
     public class ProjectManagerTests
