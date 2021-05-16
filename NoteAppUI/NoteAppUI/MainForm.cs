@@ -176,7 +176,7 @@ namespace NoteAppUI
         private void AddNote()
         {
             // Создание формы редактирования
-            var editForm = new NoteEditForm();
+            var editForm = new EditForm();
             // Отключение данной формы
             Enabled = false;
             // Отображение формы редактирования и ожидание результата
@@ -209,7 +209,7 @@ namespace NoteAppUI
             var selectedNote = (Note) listBoxNotes.SelectedItem;
             int index = _project.Notes.IndexOf(selectedNote);
             // Создание формы редактирования
-            var editForm = new NoteEditForm() {Note = selectedNote};
+            var editForm = new EditForm() {Note = selectedNote};
             // Отключение данной формы
             Enabled = false;
             // Отображение формы редактирования и ожидание результата

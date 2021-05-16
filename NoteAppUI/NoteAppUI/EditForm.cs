@@ -9,7 +9,7 @@ namespace NoteAppUI
     /// <summary>
     /// Класс формы редактирования заметки.
     /// </summary>
-    public partial class NoteEditForm : Form
+    public partial class EditForm : Form
     {
         /// <summary>
         /// Словарь категорий для отображения в программе.
@@ -76,7 +76,7 @@ namespace NoteAppUI
         /// <summary>
         /// Конструктор формы редактирования заметки.
         /// </summary>
-        public NoteEditForm()
+        public EditForm()
         {
             
             InitializeComponent();

@@ -68,11 +68,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
-    <Compile Include="NoteEditForm.cs">
+    <Compile Include="EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteEditForm.Designer.cs">
-      <DependentUpon>NoteEditForm.cs</DependentUpon>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -89,8 +89,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Icons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteEditForm.resx">
-      <DependentUpon>NoteEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

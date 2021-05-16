@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace NoteAppUI
 {
-    partial class NoteEditForm
+    partial class EditForm
     {
         /// <summary>
         /// Required designer variable.
