@@ -150,7 +150,7 @@ namespace NoteAppUI
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer.IsSplitterFixed = true;
             this.splitContainer.Location = new System.Drawing.Point(0, 28);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -183,7 +183,7 @@ namespace NoteAppUI
             this.tableLayoutPanel1.Controls.Add(this.listBoxNotes, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelButtons, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
@@ -206,7 +206,7 @@ namespace NoteAppUI
             // 
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(111, 4);
-            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(126, 24);
             this.comboBoxCategory.TabIndex = 1;
@@ -230,7 +230,7 @@ namespace NoteAppUI
             this.listBoxNotes.FormattingEnabled = true;
             this.listBoxNotes.ItemHeight = 16;
             this.listBoxNotes.Location = new System.Drawing.Point(4, 40);
-            this.listBoxNotes.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxNotes.Name = "listBoxNotes";
             this.listBoxNotes.Size = new System.Drawing.Size(234, 324);
             this.listBoxNotes.TabIndex = 1;
@@ -255,7 +255,7 @@ namespace NoteAppUI
             this.buttonRemove.FlatAppearance.BorderSize = 0;
             this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Location = new System.Drawing.Point(91, 4);
-            this.buttonRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(35, 32);
             this.buttonRemove.TabIndex = 2;
@@ -269,7 +269,7 @@ namespace NoteAppUI
             this.buttonEdit.FlatAppearance.BorderSize = 0;
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Location = new System.Drawing.Point(48, 4);
-            this.buttonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(35, 32);
             this.buttonEdit.TabIndex = 1;
@@ -283,7 +283,7 @@ namespace NoteAppUI
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Location = new System.Drawing.Point(4, 4);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(35, 32);
             this.buttonAdd.TabIndex = 0;
@@ -296,20 +296,20 @@ namespace NoteAppUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNoteText.Location = new System.Drawing.Point(4, 119);
-            this.textBoxNoteText.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNoteText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxNoteText.MaxLength = 65535;
             this.textBoxNoteText.Multiline = true;
             this.textBoxNoteText.Name = "textBoxNoteText";
             this.textBoxNoteText.ReadOnly = true;
             this.textBoxNoteText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxNoteText.Size = new System.Drawing.Size(627, 296);
+            this.textBoxNoteText.Size = new System.Drawing.Size(624, 296);
             this.textBoxNoteText.TabIndex = 6;
             // 
             // dateTimePickerModifiedAt
             // 
             this.dateTimePickerModifiedAt.Enabled = false;
             this.dateTimePickerModifiedAt.Location = new System.Drawing.Point(394, 69);
-            this.dateTimePickerModifiedAt.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerModifiedAt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePickerModifiedAt.Name = "dateTimePickerModifiedAt";
             this.dateTimePickerModifiedAt.Size = new System.Drawing.Size(176, 22);
             this.dateTimePickerModifiedAt.TabIndex = 5;
@@ -328,7 +328,7 @@ namespace NoteAppUI
             // 
             this.dateTimePickerCreatedAt.Enabled = false;
             this.dateTimePickerCreatedAt.Location = new System.Drawing.Point(106, 69);
-            this.dateTimePickerCreatedAt.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerCreatedAt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePickerCreatedAt.Name = "dateTimePickerCreatedAt";
             this.dateTimePickerCreatedAt.Size = new System.Drawing.Size(176, 22);
             this.dateTimePickerCreatedAt.TabIndex = 3;
@@ -350,7 +350,7 @@ namespace NoteAppUI
             this.labelNoteCategory.Location = new System.Drawing.Point(10, 35);
             this.labelNoteCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNoteCategory.Name = "labelNoteCategory";
-            this.labelNoteCategory.Size = new System.Drawing.Size(622, 34);
+            this.labelNoteCategory.Size = new System.Drawing.Size(619, 34);
             this.labelNoteCategory.TabIndex = 1;
             this.labelNoteCategory.Text = "Категория: ";
             this.labelNoteCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -363,7 +363,7 @@ namespace NoteAppUI
             this.labelName.Location = new System.Drawing.Point(10, 4);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(622, 31);
+            this.labelName.Size = new System.Drawing.Size(619, 31);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название заметки";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -376,7 +376,7 @@ namespace NoteAppUI
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimumSize = new System.Drawing.Size(848, 489);
             this.Name = "MainForm";
             this.Text = "Заметки";
