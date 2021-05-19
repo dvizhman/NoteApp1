@@ -263,11 +263,9 @@ namespace NoteAppUI
             // Загрузка списка категорий
             LoadCategories();
             
-            listBoxNotes.SelectedIndexChanged -= listBoxNotes_SelectedIndexChanged;
             // Загрузка заметок
             LoadNotes();
             listBoxNotes.SelectedIndex = -1;
-            listBoxNotes.SelectedIndexChanged += listBoxNotes_SelectedIndexChanged;
 
             // Выбор текущей заметки
             if (_project.CurrentNote != null)
@@ -341,6 +339,10 @@ namespace NoteAppUI
         private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Отобразить выбранную заметку
+            if (listBoxNotes.SelectedIndex == -1)
+            {
+                return;
+            }
             SelectNote((Note)listBoxNotes.Items[listBoxNotes.SelectedIndex]);
         }
 
